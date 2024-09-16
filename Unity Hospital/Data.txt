@@ -1,0 +1,6 @@
+Green: #46C8BC
+Blue: #1E8ACB
+
+Font: Inter "With different Properties(Bold , Thin , Normal etc)"
+
+Font size: make your own one that matches the UI ,DON'T take the size from UI
