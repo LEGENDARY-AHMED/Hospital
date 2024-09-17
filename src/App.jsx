@@ -11,7 +11,13 @@ export default function App() {
       path: "/",
       element: <Layout />,
       children: [
-        
+            
+
+        // Add your routes here
+
+        // Example:
+        // { path: "/about", element: <About /> },
+        // { path: "/contact", element: <Contact /> },
       ],
     },
   ]);
