@@ -1,7 +1,26 @@
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import Layout from "./components/Layout/Layout";
+
+
 export default function App() {
+  const routes = new QueryClient();
+
+  const myRouter = createHashRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        
+      ],
+    },
+  ]);
   return (
-    <h1 className=" bg-red-600 text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <QueryClientProvider client={routes}>
+
+         
+            <RouterProvider router={myRouter} />
+
+    </QueryClientProvider>
+  );
 }
