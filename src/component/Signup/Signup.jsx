@@ -5,13 +5,12 @@ import Google from "./../../Unity Hospital/Signup/Social/Group 46.png";
 import Facebook from "./../../Unity Hospital/Signup/Social/Group 45.png";
 import Apple from "./../../Unity Hospital/Signup/Social/Group 44.png";
 import img from "./../../Unity Hospital/Signup/cuate.png";
-// import GlobalContext from "../../context/GlobalContext";
-
+import { Navigation } from "../../context/GlobalContext";
+import { useContext } from "react";
 
 const Signup = () => {
-  // const { setFlag } = useContext(GlobalContext)
-    
-  // setFlag(false)
+  const { setFlag } = useContext(Navigation);
+  setFlag(false);
   return (
     <>
       {/* Helmet for managing document head */}

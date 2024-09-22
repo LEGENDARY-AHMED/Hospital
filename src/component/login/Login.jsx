@@ -1,4 +1,4 @@
-// import { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GoTriangleRight } from "react-icons/go";
 import Google from "./../../Unity Hospital/Login/Social/Group 46.png";
@@ -6,12 +6,11 @@ import Facebook from "./../../Unity Hospital/Login/Social/Group 45.png";
 import Apple from "./../../Unity Hospital/Login/Social/Group 44.png";
 import img from "./../../Unity Hospital/Login/cuate.png";
 import { Helmet } from "react-helmet";
-// import GlobalContext from "../../context/GlobalContext";
+import { Navigation } from "../../context/GlobalContext";
 
 const Login = () => {
-  // const { flag } = useContext(GlobalContext);
-  // console.log(flag);
-
+  const { setFlag  } = useContext(Navigation);
+  setFlag(false)
   return (
     <>
       {/* Helmet for managing document head */}

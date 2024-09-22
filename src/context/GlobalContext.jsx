@@ -1,13 +1,9 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const Navigation = createContext();
 
 const GlobalContext = ({ children }) => {
-  const [flag, setFlag] = useState(false);
-
-  // useEffect(() => {
-  //   console.log(`Flag has changed to: ${flag}`);
-  // }, [flag]);
+  const [flag, setFlag] = useState(true);
 
   return (
     <Navigation.Provider value={{ flag, setFlag }}>

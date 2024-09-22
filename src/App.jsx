@@ -14,7 +14,7 @@ export default function App() {
       path: "/",
       element: <Layout />,
       children: [
-        { path: "/Login", element: <Login /> },
+        { path: "/Login", element: <Login />  },
         { path: "/Sign-up", element: <Signup /> },
         { path: "/Forgot-pass", element: <Forgotten /> },
       ],
