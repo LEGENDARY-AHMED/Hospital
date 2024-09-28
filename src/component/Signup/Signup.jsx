@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoTriangleRight } from "react-icons/go";
 import { Helmet } from "react-helmet";
 import Google from "./../../Unity Hospital/Signup/Social/Group 46.png";
@@ -6,103 +6,190 @@ import Facebook from "./../../Unity Hospital/Signup/Social/Group 45.png";
 import Apple from "./../../Unity Hospital/Signup/Social/Group 44.png";
 import img from "./../../Unity Hospital/Signup/cuate.png";
 import { Navigation } from "../../context/GlobalContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Signup = () => {
   const { setFlag } = useContext(Navigation);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  // Ensure that the flag is false when loading the signup page
   setFlag(false);
+
+  // Define the validation schema using Yup
+  const SignupSchema = Yup.object().shape({
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters long")
+      .required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm password is required"),
+  });
+
+  // Use Formik for form handling and validation
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    validationSchema: SignupSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setSubmitting(false);
+        alert("Signup Successful");
+        navigate("/Home"); // Redirect after signup success
+      }, 2000);
+    },
+  });
+
   return (
     <>
-      {/* Helmet for managing document head */}
       <Helmet>
         <title>Signup - Unity Hospital</title>
-        <meta name="description" content="Signup page for Unity Hospital" />
       </Helmet>
 
-      {/* Signup Section */}
-      <section className="grid grid-cols-1 lg:grid-cols-5 gap-10 w-[80%] m-auto h-screen items-center">
-        <form className="grid col-span-2 gap-4 text-center">
-          <h1 className="text-6xl font-bold text-[#46C8BC]">Signup</h1>
-          <p className="text-gray-600 font-semibold lg:text-sm mb-2">
-            Compassionate, top-quality care for our community.
+      <section className="flex flex-col lg:flex-row items-center gap-24 justify-center w-[80%] m-auto pt-10 h-screen">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="flex flex-col items-center gap-4 w-full lg:w-2/5 2xl:w-1/2 text-center"
+        >
+          <h1 className="text-5xl font-bold text-[#46C8BC]">Signup</h1>
+          <p className="text-gray-600 font-semibold text-sm mb-2">
+            Welcome to Unity Hospital, where we provide top-quality care
           </p>
 
-          {/* Input Fields */}
-          <div className="grid md:grid-cols-2 md:gap-6">
-            <div className="relative z-0 w-full mb-5 group">
+          <div className="flex justify-between w-full gap-6">
+            <div className="w-full">
               <input
                 type="text"
                 name="firstName"
-                id="firstName"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.firstName}
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
                 placeholder="First name"
-                required
               />
+              {formik.touched.firstName && formik.errors.firstName ? (
+                <p className="text-red-500 text-sm text-start mt-1">
+                  {formik.errors.firstName}
+                </p>
+              ) : null}
             </div>
-            <div className="relative z-0 w-full mb-5 group">
+
+            <div className="w-full">
               <input
                 type="text"
                 name="lastName"
-                id="lastName"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.lastName}
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
                 placeholder="Last name"
-                required
               />
+              {formik.touched.lastName && formik.errors.lastName ? (
+                <p className="text-red-500 text-sm text-start mt-1">
+                  {formik.errors.lastName}
+                </p>
+              ) : null}
             </div>
           </div>
 
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
-          />
-          <input
-            type="password"
-            id="confermPassword"
-            name="confermPassword"
-            placeholder="Confirm Password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
-          />
+          <div className="w-full">
+            <input
+              type="email"
+              name="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
+              placeholder="Email"
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <p className="text-red-500 text-sm text-start mt-1">
+                {formik.errors.email}
+              </p>
+            ) : null}
+          </div>
 
-          {/* Signup Button */}
+          <div className="w-full">
+            <input
+              type="password"
+              name="password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
+              placeholder="Password"
+            />
+            {formik.touched.password && formik.errors.password ? (
+              <p className="text-red-500 text-sm text-start mt-1">
+                {formik.errors.password}
+              </p>
+            ) : null}
+          </div>
+
+          <div className="w-full">
+            <input
+              type="password"
+              name="confirmPassword"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.confirmPassword}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
+              placeholder="Confirm Password"
+            />
+            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+              <p className="text-red-500 text-sm text-start mt-1">
+                {formik.errors.confirmPassword}
+              </p>
+            ) : null}
+          </div>
+
           <button
             type="submit"
-            className="flex items-center justify-center p-2 mb-2 text-2xl font-medium text-white rounded-lg bg-[#46C8BC] hover:bg-[#4F8E89]"
+            className="flex items-center justify-center p-1.5 w-full text-2xl font-medium text-white rounded-lg bg-[#46C8BC] hover:bg-[#4F8E89] focus:ring-2 focus:ring-teal-500 focus:outline-none"
+            disabled={formik.isSubmitting || loading}
           >
-            Sign up
-            <GoTriangleRight />
+            {loading ? "Signing up..." : "Sign up"}
+            {!loading && <GoTriangleRight />}
           </button>
 
-          {/* Divider */}
-          <div className="flex items-center my-2">
-            <div className="flex-grow border-t border-gray-300"></div>
-            <p className="mx-4 text-gray-500">OR</p>
-            <div className="flex-grow border-t border-gray-300"></div>
+          <div className="flex items-center my-1 w-full">
+            <div className="flex-grow border-t border-gray-900"></div>
+            <p className="text-gray-500 font-bold mx-1">OR</p>
+            <div className="flex-grow border-t border-gray-900"></div>
           </div>
 
-          {/* Social Signup Options */}
-          <div className="grid grid-cols-3 xl:w-[80%] xl:m-auto">
-            <img src={Google} alt="Google Signup" className="w-16 mx-auto" />
+          <div className="flex justify-between gap-5 w-[70%]">
+            <img
+              src={Google}
+              alt="Google login"
+              className="w-12 cursor-pointer hover:scale-105 transition-transform"
+            />
             <img
               src={Facebook}
-              alt="Facebook Signup"
-              className="w-16 mx-auto"
+              alt="Facebook login"
+              className="w-12 cursor-pointer hover:scale-105 transition-transform"
             />
-            <img src={Apple} alt="Apple Signup" className="w-16 mx-auto" />
+            <img
+              src={Apple}
+              alt="Apple login"
+              className="w-12 cursor-pointer hover:scale-105 transition-transform"
+            />
           </div>
 
-          {/* Links */}
           <p className="text-gray-400">
-            Don’t own an account?
+            Already have an account?
             <Link
               to="/Login"
               className="text-sm text-blue-700 hover:text-blue-700 cursor-pointer"
@@ -112,15 +199,14 @@ const Signup = () => {
           </p>
           <Link
             to="/Home"
-            className="text-sm text-blue-700 hover:text-blue-700 cursor-pointer m-auto"
+            className="text-sm text-blue-700 hover:text-blue-700 cursor-pointer m-auto text-center"
           >
-            Skip For later
+            Skip for later
           </Link>
         </form>
 
-        {/* Illustration */}
-        <div className="hidden col-span-3 lg:block">
-          <img src={img} alt="Illustration" className="w-full" />
+        <div className="hidden lg:flex justify-center items-center lg:w-3/5 2xl:w-1/2">
+          <img src={img} alt="Illustration" className="w-full h-auto" />
         </div>
       </section>
     </>
