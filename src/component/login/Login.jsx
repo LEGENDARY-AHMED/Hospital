@@ -1,56 +1,63 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoTriangleRight } from "react-icons/go";
-import { AiOutlineWarning } from "react-icons/ai"; // Added for warning icons
+import { AiOutlineWarning } from "react-icons/ai";
 import Google from "./../../Unity Hospital/Login/Social/Group 46.png";
 import Facebook from "./../../Unity Hospital/Login/Social/Group 45.png";
 import Apple from "./../../Unity Hospital/Login/Social/Group 44.png";
 import img from "./../../Unity Hospital/Login/cuate.png";
 import { Helmet } from "react-helmet";
-import { Navigation } from "../../context/GlobalContext";
+import { AppNavigationContext } from "../../context/GlobalContext";
+import axios from "axios";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { Authenticate } from "../../context/AutheContext";
 
 const Login = () => {
-  const { setFlag } = useContext(Navigation);
+  const { setSidebarOpen } = useContext(AppNavigationContext);
+  const { setToken, setUserName } = useContext(Authenticate);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
-  setFlag(false);
 
-  // Create a Yup validation schema with enhanced rules
-  const validationSchema = Yup.object({
-    email: Yup.string()
-      .email("Please enter a valid email address")
-      .required("Email is required"),
-    password: Yup.string()
-      .min(6, "Password must be at least 6 characters")
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/,
-        "Password must contain at least one letter, one number, and one special character"
-      )
-      .required("Password is required"),
-  });
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [setSidebarOpen]);
+
+  const registerUser = async (values) => {
+    setLoading(true);
+    setErrorMessage(null);
+    try {
+      const res = await axios.post(
+        "https://ecommerce.routemisr.com/api/v1/auth/signin",
+        values
+      );
+      setLoading(false);
+
+      setUserName(res.data.user.name);
+      setToken(res?.data.token);
+      localStorage.setItem("token", res.data.token);
+      navigate("/Find-a-doctor");
+    } catch (error) {
+      setLoading(false);
+      setErrorMessage("Failed to login. Please check your credentials.");
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    validationSchema: validationSchema,
-    onSubmit: async (values) => {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        if (
-          values.email === "user@example.com" &&
-          values.password === "password"
-        ) {
-          navigate("/Home");
-        } else {
-          formik.setErrors({ password: "Invalid email or password" });
-        }
-      }, 2000);
-    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
+      password: Yup.string()
+        .min(6, "Password must be at least 6 characters")
+        .required("Password is required"),
+    }),
+    onSubmit: registerUser,
   });
 
   return (
@@ -68,6 +75,12 @@ const Login = () => {
           <p className="text-gray-600 font-semibold text-sm mb-2">
             Top-quality care for our community
           </p>
+
+          {errorMessage && (
+            <div className="text-red-600 text-sm flex items-center gap-1 mt-1">
+              <AiOutlineWarning /> {errorMessage}
+            </div>
+          )}
 
           <div className="w-full">
             <input
@@ -125,10 +138,10 @@ const Login = () => {
           <button
             type="submit"
             className="flex items-center justify-center p-1.5 w-full text-2xl font-medium text-white rounded-lg bg-[#46C8BC] hover:bg-[#4F8E89] focus:ring-2 focus:ring-teal-500 focus:outline-none"
-            disabled={formik.isSubmitting || loading}
+            disabled={formik.isSubmitting || loading || !formik.isValid}
           >
-           {loading ? "Logging in..." : "Login"}
-           {!loading && <GoTriangleRight />}
+            {loading ? "Logging in..." : "Login"}
+            {!loading && <GoTriangleRight />}
           </button>
 
           <div className="flex items-center my-1 w-full">

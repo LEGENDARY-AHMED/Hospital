@@ -3,12 +3,13 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Layout from "./component/layout/Layout";
 import Login from "./component/login/Login";
 import Signup from "./component/Signup/Signup";
-import GlobalContext from "./context/GlobalContext";
 import Forgotten from "./component/forgotten/Forgotten";
 import Verify from "./component/Verify/Verify";
 import About from "./component/about/About";
 import Change from "./component/Change password/changePassword";
 import Doctor from "./component/doctor/Doctor";
+import AppGlobalProvider from "./context/GlobalContext";
+import AuthenticateProvider from "./context/AutheContext";
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -33,9 +34,11 @@ export default function App() {
   ]);
   return (
     <QueryClientProvider client={queryClient}>
-      <GlobalContext>
+       <AuthenticateProvider>
+      <AppGlobalProvider>
         <RouterProvider router={myRouter} />
-      </GlobalContext>
+      </AppGlobalProvider>
+      </AuthenticateProvider>
     </QueryClientProvider>
   );
 }

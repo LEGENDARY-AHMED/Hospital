@@ -1,15 +1,15 @@
 import { createContext, useState } from "react";
 
-export const Navigation = createContext();
+export const AppNavigationContext = createContext();
 
-const GlobalContext = ({ children }) => {
-  const [flag, setFlag] = useState(true);
+const AppGlobalProvider = ({ children }) => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <Navigation.Provider value={{ flag, setFlag }}>
+    <AppNavigationContext.Provider value={{ isSidebarOpen, setSidebarOpen }}>
       {children}
-    </Navigation.Provider>
+    </AppNavigationContext.Provider>
   );
 };
 
-export default GlobalContext;
+export default AppGlobalProvider;

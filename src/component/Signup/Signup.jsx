@@ -1,55 +1,67 @@
 import { Link, useNavigate } from "react-router-dom";
 import { GoTriangleRight } from "react-icons/go";
 import { Helmet } from "react-helmet";
+import axios from "axios"; 
 import Google from "./../../Unity Hospital/Signup/Social/Group 46.png";
 import Facebook from "./../../Unity Hospital/Signup/Social/Group 45.png";
 import Apple from "./../../Unity Hospital/Signup/Social/Group 44.png";
 import img from "./../../Unity Hospital/Signup/cuate.png";
-import { Navigation } from "../../context/GlobalContext";
-import { useContext, useState } from "react";
+import { AppNavigationContext } from "../../context/GlobalContext";
+import { useContext, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const Signup = () => {
-  const { setFlag } = useContext(Navigation);
+  const { setSidebarOpen } = useContext(AppNavigationContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [setSidebarOpen]);
 
-  // Ensure that the flag is false when loading the signup page
-  setFlag(false);
+  async function registerUser(values) {
+    setLoading(true);
+    try {
+      const res = await axios.post(
+        "https://ecommerce.routemisr.com/api/v1/auth/signup",
+        values
+      );
+      setLoading(false);
+      navigate("/Login");
+    } catch (error) {
+      setLoading(false);
+    }
+  }
 
-  // Define the validation schema using Yup
-  const SignupSchema = Yup.object().shape({
-    firstName: Yup.string().required("First name is required"),
-    lastName: Yup.string().required("Last name is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .required("Name is required")
+      .min(3, "Name must be at least 3 characters"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
     password: Yup.string()
-      .min(6, "Password must be at least 6 characters long")
-      .required("Password is required"),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], "Passwords must match")
-      .required("Confirm password is required"),
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters")
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+      ),
+    rePassword: Yup.string()
+      .required("Confirm Password is required")
+      .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
 
-  // Use Formik for form handling and validation
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
+      name: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      rePassword: "",
+      phone: "01028939240",
     },
-    validationSchema: SignupSchema,
-    onSubmit: (values, { setSubmitting }) => {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        setSubmitting(false);
-        alert("Signup Successful");
-        navigate("/Home"); // Redirect after signup success
-      }, 2000);
-    },
+    validationSchema,
+    onSubmit: registerUser,
   });
 
   return (
@@ -72,16 +84,16 @@ const Signup = () => {
             <div className="w-full">
               <input
                 type="text"
-                name="firstName"
+                name="name"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.firstName}
+                value={formik.values.name}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
                 placeholder="First name"
               />
-              {formik.touched.firstName && formik.errors.firstName ? (
+              {formik.touched.name && formik.errors.name ? (
                 <p className="text-red-500 text-sm text-start mt-1">
-                  {formik.errors.firstName}
+                  {formik.errors.name}
                 </p>
               ) : null}
             </div>
@@ -90,17 +102,9 @@ const Signup = () => {
               <input
                 type="text"
                 name="lastName"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.lastName}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
                 placeholder="Last name"
               />
-              {formik.touched.lastName && formik.errors.lastName ? (
-                <p className="text-red-500 text-sm text-start mt-1">
-                  {formik.errors.lastName}
-                </p>
-              ) : null}
             </div>
           </div>
 
@@ -141,16 +145,16 @@ const Signup = () => {
           <div className="w-full">
             <input
               type="password"
-              name="confirmPassword"
+              name="rePassword"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.confirmPassword}
+              value={formik.values.rePassword}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
               placeholder="Confirm Password"
             />
-            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+            {formik.touched.rePassword && formik.errors.rePassword ? (
               <p className="text-red-500 text-sm text-start mt-1">
-                {formik.errors.confirmPassword}
+                {formik.errors.rePassword}
               </p>
             ) : null}
           </div>
