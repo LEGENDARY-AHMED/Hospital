@@ -22,7 +22,12 @@ export default function App() {
   const myRouter = createHashRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: (
+        <>
+          <ScrollToTop />
+          <Layout />
+        </>
+      ),
       children: [
         { path: "/", element: <Login /> },
         { path: "/Login", element: <Login /> },
@@ -44,9 +49,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <AuthenticateProvider>
         <AppGlobalProvider>
-          <RouterProvider router={myRouter}>
-            <ScrollToTop />
-          </RouterProvider>
+          <RouterProvider router={myRouter}></RouterProvider>
         </AppGlobalProvider>
       </AuthenticateProvider>
     </QueryClientProvider>
