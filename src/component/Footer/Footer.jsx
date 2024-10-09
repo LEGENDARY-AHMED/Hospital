@@ -28,44 +28,43 @@ export default function Footer() {
                 Quick Links
               </h3>
               <ul className="grid grid-cols-2 ">
-                <Link to="/">
-                  <li className="mb-2">
-                    <a
-                      href="#"
-                      className="text-black font-semibold hover:text-c2"
-                    >
-                      Home
-                    </a>
-                  </li>
-                </Link>
                 <li className="mb-2">
-                  <a
-                    href="#"
+                  <Link
+                    to="/Home"
+                    className="text-black font-semibold hover:text-c2"
+                  >
+                    Home
+                  </Link>
+                </li>
+
+                <li className="mb-2">
+                  <Link
+                    to="/Find-a-doctor"
                     className="text-black  font-semibold hover:text-c2"
                   >
                     Doctors
-                  </a>
-                </li>{" "}
-                <Link to="/contact">
-                  <li className="mb-2">
-                    <a
-                      href="#"
-                      className="text-black font-semibold  hover:text-c2"
-                    >
-                      Contact us
-                    </a>
-                  </li>
-                </Link>
+                  </Link>
+                </li>
+
+                <li className="mb-2">
+                  <Link
+                    to="/Contact-us"
+                    className="text-black font-semibold  hover:text-c2"
+                  >
+                    Contact us
+                  </Link>
+                </li>
+
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/About-us"
                     className="text-black font-semibold  hover:text-c2"
                   >
                     About us
-                  </a>
+                  </Link>
                 </li>
               </ul>
-            </div>{" "}
+            </div>
             <hr className="border-black md:hidden" />
             {/* Hours of Operation */}
             <div>
@@ -96,8 +95,8 @@ export default function Footer() {
             <p>
               <a href="#" className="text-black hover:underline">
                 Privacy Policy
-              </a>{" "}
-              |{" "}
+              </a>
+              |
               <a href="#" className="text-black hover:underline">
                 Terms of Use
               </a>
