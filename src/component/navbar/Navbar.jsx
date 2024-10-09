@@ -41,7 +41,7 @@ const NavbarComponent = () => {
         <nav className="dark:bg-gray-900 bg-white fixed lg:relative w-full z-20 top-0 start-0">
           <div className="flex flex-wrap items-center justify-between w-[80%] mx-auto py-4">
             <Link to="/Home">
-              <img src={Logo} className="h-9" alt="Logo" />
+              <img src={Logo} className="h-12" alt="Logo" />
             </Link>
 
             <div
@@ -280,7 +280,7 @@ const NavbarComponent = () => {
         <nav className="dark:bg-gray-900 bg-white top-0 start-0 end-0 fixed">
           <div className=" grid w-[80%] m-auto items-center p-3 grid-cols-2">
             <Link to="/Home">
-              <img src={Logo} className="h-9" alt="Logo" />
+              <img src={Logo} className="h-12" alt="Logo" />
             </Link>
 
             <Link
