@@ -133,135 +133,237 @@ const Doctor = () => {
             </button>
           ))}
         </div>
-
+        {/*  */}
         <section>
           <h2 className="text-2xl text-[#1E8ACB] font-bold mb-4">
             Top Rated Doctors
           </h2>
-          <Slider {...settings}>
-            {filteredDoctors.map((doctor, index) => (
-             <Link to="/Doctor-Info" key={index} className="flex p-4">
-                <div className="relative bg-white pb-6 overflow-hidden group">
-                  <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
-                    <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
-                    <img
-                      src={doctor.img}
-                      alt={doctor.name}
-                      className="ransition-transform duration-300 transform group-hover:scale-105 mx-auto"
-                    />
-                  </div>
-                  <div className="px-5">
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      {doctor.name}
-                    </h3>
-                    <div className="flex justify-between mt-2 items-center">
-                      <p className="text-blue-600 mb-2">{doctor.specialty}</p>
-                      <p className="flex justify-center items-center">
-                        {doctor.rating}
-                        <FaStar className="text-[#46C8BC] ml-1" />
-                      </p>
+          {searchQuery ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredDoctors.map((doctor, index) => (
+                <Link to="/Doctor-Info" key={index} className="p-4">
+                  <div className="relative bg-white pb-6 overflow-hidden group">
+                    <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
+                      <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
+                      <img
+                        src={doctor.img}
+                        alt={doctor.name}
+                        className="transition-transform duration-300 transform group-hover:scale-105 mx-auto"
+                      />
+                    </div>
+                    <div className="px-5">
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        {doctor.name}
+                      </h3>
+                      <div className="flex justify-between mt-2 items-center">
+                        <p className="text-blue-600 mb-2">{doctor.specialty}</p>
+                        <p className="flex justify-center items-center">
+                          {doctor.rating}
+                          <FaStar className="text-[#46C8BC] ml-1" />
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
                 </Link>
-            ))}
-          </Slider>
+              ))}
+            </div>
+          ) : (
+            <Slider {...settings}>
+              {doctors.map((doctor, index) => (
+                <Link to="/Doctor-Info" key={index} className="p-4">
+                  <div className="relative bg-white pb-6 overflow-hidden group">
+                    <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
+                      <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
+                      <img
+                        src={doctor.img}
+                        alt={doctor.name}
+                        className="transition-transform duration-300 transform group-hover:scale-105 mx-auto"
+                      />
+                    </div>
+                    <div className="px-5">
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        {doctor.name}
+                      </h3>
+                      <div className="flex justify-between mt-2 items-center">
+                        <p className="text-blue-600 mb-2">{doctor.specialty}</p>
+                        <p className="flex justify-center items-center">
+                          {doctor.rating}
+                          <FaStar className="text-[#46C8BC] ml-1" />
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </Slider>
+          )}
         </section>
+
+        {/*  */}
 
         <section className="my-8">
           <h2 className="text-2xl text-[#1E8ACB] font-bold mb-4">
             Today's Available Doctors
           </h2>
-          <Slider {...settings}>
-            {filteredDoctors.map((doctor, index) => (
-              <Link to="/Doctor-Info" key={index} className="p-4">
-                <div className="relative bg-white pb-6 overflow-hidden group">
-                  <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
-                    <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
-                    <img
-                      src={doctor.img}
-                      alt={doctor.name}
-                      className="ransition-transform duration-300 transform group-hover:scale-105 mx-auto"
-                    />
-                  </div>
-                  <div className="px-5">
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      {doctor.name}
-                    </h3>
-                    <div className="flex justify-between mt-2 items-center">
-                      <p className="text-blue-600 mb-2">{doctor.specialty}</p>
-                      <p className="flex justify-center items-center">
-                        {doctor.rating}
-                        <FaStar className="text-[#46C8BC] ml-1" />
-                      </p>
+          {searchQuery ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredDoctors.map((doctor, index) => (
+                <Link to="/Doctor-Info" key={index} className="p-4">
+                  <div className="relative bg-white pb-6 overflow-hidden group">
+                    <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
+                      <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
+                      <img
+                        src={doctor.img}
+                        alt={doctor.name}
+                        className="transition-transform duration-300 transform group-hover:scale-105 mx-auto"
+                      />
+                    </div>
+                    <div className="px-5">
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        {doctor.name}
+                      </h3>
+                      <div className="flex justify-between mt-2 items-center">
+                        <p className="text-blue-600 mb-2">{doctor.specialty}</p>
+                        <p className="flex justify-center items-center">
+                          {doctor.rating}
+                          <FaStar className="text-[#46C8BC] ml-1" />
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </Slider>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <Slider {...settings}>
+              {doctors.map((doctor, index) => (
+                <Link to="/Doctor-Info" key={index} className="p-4">
+                  <div className="relative bg-white pb-6 overflow-hidden group">
+                    <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
+                      <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
+                      <img
+                        src={doctor.img}
+                        alt={doctor.name}
+                        className="transition-transform duration-300 transform group-hover:scale-105 mx-auto"
+                      />
+                    </div>
+                    <div className="px-5">
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        {doctor.name}
+                      </h3>
+                      <div className="flex justify-between mt-2 items-center">
+                        <p className="text-blue-600 mb-2">{doctor.specialty}</p>
+                        <p className="flex justify-center items-center">
+                          {doctor.rating}
+                          <FaStar className="text-[#46C8BC] ml-1" />
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </Slider>
+          )}
         </section>
 
         <section>
           <h2 className="text-2xl text-[#1E8ACB] font-bold mb-4">
             All Doctors
           </h2>
-          <Slider {...settings}>
-            {filteredDoctors.map((doctor, index) => (
-              <Link to="/Doctor-Info" key={index} className="p-4">
-                <div className="relative bg-white pb-6 overflow-hidden group">
-                  <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
-                    <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
-                    <img
-                      src={doctor.img}
-                      alt={doctor.name}
-                      className="ransition-transform duration-300 transform group-hover:scale-105 mx-auto"
-                    />
-                  </div>
-                  <div className="px-5">
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      {doctor.name}
-                    </h3>
-                    <div className="flex justify-between mt-2 items-center">
-                      <p className="text-blue-600 mb-2">{doctor.specialty}</p>
-                      <p className="flex justify-center items-center">
-                        {doctor.rating}
-                        <FaStar className="text-[#46C8BC] ml-1" />
-                      </p>
+
+          {searchQuery ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredDoctors.map((doctor, index) => (
+                <Link to="/Doctor-Info" key={index} className="p-4">
+                  <div className="relative bg-white pb-6 overflow-hidden group">
+                    <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
+                      <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
+                      <img
+                        src={doctor.img}
+                        alt={doctor.name}
+                        className="transition-transform duration-300 transform group-hover:scale-105 mx-auto"
+                      />
+                    </div>
+                    <div className="px-5">
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        {doctor.name}
+                      </h3>
+                      <div className="flex justify-between mt-2 items-center">
+                        <p className="text-blue-600 mb-2">{doctor.specialty}</p>
+                        <p className="flex justify-center items-center">
+                          {doctor.rating}
+                          <FaStar className="text-[#46C8BC] ml-1" />
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </Slider>
-          <Slider {...settings}>
-            {filteredDoctors.map((doctor, index) => (
-              <Link to="/Doctor-Info" key={index} className="p-4">
-                <div className="relative bg-white pb-6 overflow-hidden group">
-                  <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
-                    <div className="absolute mx-auto bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
-                    <img
-                      src={doctor.img}
-                      alt={doctor.name}
-                      className="ransition-transform duration-300 transform group-hover:scale-105 mx-auto"
-                    />
-                  </div>
-                  <div className="px-5">
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      {doctor.name}
-                    </h3>
-                    <div className="flex justify-between mt-2 items-center">
-                      <p className="text-blue-600 mb-2">{doctor.specialty}</p>
-                      <p className="flex justify-center items-center">
-                        {doctor.rating}
-                        <FaStar className="text-[#46C8BC] ml-1" />
-                      </p>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <>
+              <Slider {...settings}>
+                {doctors.map((doctor, index) => (
+                  <Link to="/Doctor-Info" key={index} className="p-4">
+                    <div className="relative bg-white pb-6 overflow-hidden group">
+                      <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
+                        <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
+                        <img
+                          src={doctor.img}
+                          alt={doctor.name}
+                          className="transition-transform duration-300 transform group-hover:scale-105 mx-auto"
+                        />
+                      </div>
+                      <div className="px-5">
+                        <h3 className="text-xl font-semibold text-gray-800">
+                          {doctor.name}
+                        </h3>
+                        <div className="flex justify-between mt-2 items-center">
+                          <p className="text-blue-600 mb-2">
+                            {doctor.specialty}
+                          </p>
+                          <p className="flex justify-center items-center">
+                            {doctor.rating}
+                            <FaStar className="text-[#46C8BC] ml-1" />
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </Slider>
+                  </Link>
+                ))}
+              </Slider>
+              <Slider {...settings}>
+                {doctors.map((doctor, index) => (
+                  <Link to="/Doctor-Info" key={index} className="flex p-4">
+                    <div className="relative bg-white pb-6 overflow-hidden group">
+                      <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
+                        <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
+                        <img
+                          src={doctor.img}
+                          alt={doctor.name}
+                          className="ransition-transform duration-300 transform group-hover:scale-105 mx-auto"
+                        />
+                      </div>
+                      <div className="px-5">
+                        <h3 className="text-xl font-semibold text-gray-800">
+                          {doctor.name}
+                        </h3>
+                        <div className="flex justify-between mt-2 items-center">
+                          <p className="text-blue-600 mb-2">
+                            {doctor.specialty}
+                          </p>
+                          <p className="flex justify-center items-center">
+                            {doctor.rating}
+                            <FaStar className="text-[#46C8BC] ml-1" />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </Slider>
+            </>
+          )}
         </section>
       </div>
     </div>
