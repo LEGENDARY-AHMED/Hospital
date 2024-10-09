@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-
 export const AppNavigationContext = createContext();
 
 const AppGlobalProvider = ({ children }) => {

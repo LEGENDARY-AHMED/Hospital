@@ -7,6 +7,7 @@ import img3 from "./../../Unity Hospital/Field/Doctors/Mask group-3.png";
 import img from "./../../Unity Hospital/Field/Doctors/Mask group.png";
 import Slider from "react-slick";
 import "./Doctor.css";
+import { Link } from "react-router-dom";
 
 const Doctor = () => {
   const { setSidebarOpen } = useContext(AppNavigationContext);
@@ -139,7 +140,7 @@ const Doctor = () => {
           </h2>
           <Slider {...settings}>
             {filteredDoctors.map((doctor, index) => (
-              <div key={index} className="p-4">
+             <Link to="/Doctor-Info" key={index} className="flex p-4">
                 <div className="relative bg-white pb-6 overflow-hidden group">
                   <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
                     <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
@@ -162,7 +163,7 @@ const Doctor = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+                </Link>
             ))}
           </Slider>
         </section>
@@ -173,7 +174,7 @@ const Doctor = () => {
           </h2>
           <Slider {...settings}>
             {filteredDoctors.map((doctor, index) => (
-              <div key={index} className="p-4">
+              <Link to="/Doctor-Info" key={index} className="p-4">
                 <div className="relative bg-white pb-6 overflow-hidden group">
                   <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
                     <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
@@ -196,7 +197,7 @@ const Doctor = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </Slider>
         </section>
@@ -207,7 +208,7 @@ const Doctor = () => {
           </h2>
           <Slider {...settings}>
             {filteredDoctors.map((doctor, index) => (
-              <div key={index} className="p-4">
+              <Link to="/Doctor-Info" key={index} className="p-4">
                 <div className="relative bg-white pb-6 overflow-hidden group">
                   <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
                     <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
@@ -230,12 +231,12 @@ const Doctor = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </Slider>
           <Slider {...settings}>
             {filteredDoctors.map((doctor, index) => (
-              <div key={index} className="p-4">
+              <Link to="/Doctor-Info" key={index} className="p-4">
                 <div className="relative bg-white pb-6 overflow-hidden group">
                   <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
                     <div className="absolute mx-auto bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
@@ -258,7 +259,7 @@ const Doctor = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </Slider>
         </section>
