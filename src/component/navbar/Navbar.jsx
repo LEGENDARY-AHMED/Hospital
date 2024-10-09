@@ -5,7 +5,7 @@ import Logo2 from "./../../Unity Hospital/Logo/Logo2.jpg";
 import { FaHome, FaUserMd, FaPhoneAlt, FaInfoCircle } from "react-icons/fa";
 import { AppNavigationContext } from "../../context/GlobalContext";
 import { Authenticate } from "../../context/AutheContext";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { TbLogout } from "react-icons/tb";
 
 const NavbarComponent = () => {
@@ -131,14 +131,14 @@ const NavbarComponent = () => {
                     onClick={handleLogout}
                     className="p-2.5  bg-gray-300 text-xl rounded-full"
                   >
-               <TbLogout />
+                    <TbLogout />
                   </button>
                 </div>
               ) : (
                 <div className="hidden lg:flex justify-between items-center space-x-2">
                   <Link
                     to="/Login"
-                    className="py-1 px-7 bg-gradient-to-r from-cyan-500 to-[#46C8BC] text-white rounded-md hover:border"
+                    className="py-1 px-7 bg-gradient-to-r from-cyan-500 to-[#46C8BC] text-white rounded-md hover:shadow-sm hover:shadow-[#46C8BC]"
                   >
                     Login
                   </Link>
@@ -240,7 +240,6 @@ const NavbarComponent = () => {
                   } hover:bg-gray-200`
                 }
               >
-                           
                 <FaInfoCircle className="mr-3 text-[#1E8ACB]" />
                 <span>About us</span>
               </NavLink>
@@ -251,7 +250,6 @@ const NavbarComponent = () => {
             <div className="p-4 flex flex-col gap-4">
               {token ? (
                 <>
-                 
                   <button
                     onClick={handleLogout}
                     className="py-1 px-4 bg-red-500 text-white rounded-md"
@@ -279,17 +277,19 @@ const NavbarComponent = () => {
           </div>
         </nav>
       ) : (
-        <nav className="grid grid-cols-2 p-3 top-0 start-0 end-0 w-[80%] m-auto fixed items-center">
-          <Link to="/Home">
-            <img src={Logo} className="h-9" alt="Logo" />
-          </Link>
+        <nav className="dark:bg-gray-900 bg-white top-0 start-0 end-0 fixed">
+          <div className=" grid w-[80%] m-auto items-center p-3 grid-cols-2">
+            <Link to="/Home">
+              <img src={Logo} className="h-9" alt="Logo" />
+            </Link>
 
-          <Link
-            to="/Contact-us"
-            className="font-sans justify-self-end text-gray-400"
-          >
-            Contact us
-          </Link>
+            <Link
+              to="/Contact-us"
+              className="font-sans justify-self-end text-gray-400"
+            >
+              Contact us
+            </Link>
+          </div>
         </nav>
       )}
     </>
@@ -297,4 +297,3 @@ const NavbarComponent = () => {
 };
 
 export default NavbarComponent;
-
