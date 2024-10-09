@@ -55,7 +55,7 @@ const Verify = () => {
         <title>Forgot Password - Unity Hospital</title>
       </Helmet>
 
-      <section className="flex flex-col items-center justify-center w-full min-h-screen px-4 lg:px-0">
+      <section className="flex flex-col items-center justify-center w-full my-16 px-4 lg:px-0">
         <form onSubmit={formik.handleSubmit} className="flex flex-col text-center lg:pb-0 p-6 lg:p-12 border-2 lg:border-0 order-2 lg:order-1 w-full max-w-lg lg:max-w-none bg-white rounded-lg shadow-lg lg:shadow-none">
           <h1 className="text-3xl lg:text-5xl font-bold text-[#46C8BC] mb-4 lg:mb-6">
             Verify your Email address

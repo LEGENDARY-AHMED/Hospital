@@ -102,7 +102,7 @@ const Doctor = () => {
   );
 
   return (
-    <div className="min-h-screen mt-16 lg:mt-0">
+    <div className="my-16 lg:mt-0">
       <div className="w-[90%] mx-auto p-6">
         <div className="relative mb-6">
           <input

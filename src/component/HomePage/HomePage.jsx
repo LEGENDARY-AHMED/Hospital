@@ -109,7 +109,7 @@ export default function HomePage() {
                   we unite advanced medical expertise with compassionate care to
                   ensure the health and well-being of our community.
                 </article>
-                <div className="xl:flex lg:flex md:flex   gap-2 mb-6">
+                <div className=" items-center md:flex gap-2 mb-6">
                   <Link to="/Find-a-doctor">
                     <button className="bg-[#1E8ACB] xl:w-56 lg:w-[11.6rem] w-full font-bold xl:text-xl lg:text-lg md:text-base text-lg xl:px-14 lg:px-11  text-white px-7 rounded-md py-4 md:px-9  hover:shadow-inner hover:shadow-sky-300">
                       Get Started
