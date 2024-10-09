@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AppNavigationContext } from "../../context/GlobalContext";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -150,7 +149,7 @@ export default function Field() {
         </h1>
         <Slider {...settings}>
           {doctors.map((doctor, index) => (
-       <Link to="/Doctor-Info" key={index} className="p-4">
+            <Link to="/Doctor-Info" key={index} className="p-4">
               <div className="relative bg-white pb-6 overflow-hidden group">
                 <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
                   <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
@@ -173,7 +172,7 @@ export default function Field() {
                   </div>
                 </div>
               </div>
-              </Link>
+            </Link>
           ))}
         </Slider>
       </section>
