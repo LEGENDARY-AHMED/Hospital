@@ -24,7 +24,7 @@ export default function Doctorinfo() {
             <img
               src={img}
               alt="Doctor"
-              className="w-full object-cover   h-full rounded-md"
+              className="w-full object-cover border-cyan-200 border-2 border-r-0  h-full rounded-l-md "
             />{" "}
             <FaStar className="absolute indent-0 left-2 md:bottom-2 bottom-5 text-[5rem] text-[#46C8BC]" />
             <p className="absolute indent-0 md:bottom-8 bottom-11 text-2xl left-8 font-bold text-white ">
