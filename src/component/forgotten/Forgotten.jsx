@@ -46,7 +46,7 @@ const Forgotten = () => {
         <title>Forgot Password - Unity Hospital</title>
       </Helmet>
 
-      <section className="flex flex-col items-center justify-center w-full my-16 px-4 lg:px-0">
+      <section className="flex flex-col items-center justify-center h-screen">
         <form
           onSubmit={formik.handleSubmit}
           className="flex flex-col text-center lg:pb-5 p-6 lg:p-12 border-2 lg:border-0 order-2 lg:order-1 w-full max-w-lg lg:max-w-none bg-white rounded-lg shadow-lg lg:shadow-none"

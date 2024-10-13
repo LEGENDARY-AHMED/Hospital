@@ -14,7 +14,7 @@ const About = () => {
       <Helmet>
         <title>About - Unity Hospital</title>
       </Helmet>
-      <section className="w-[90%] mx-auto my-24 lg:mt-8 h-auto">
+      <section className="w-[90%] mx-auto my-24">
         <img
           src={img}
           className="w-full object-cover"

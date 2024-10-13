@@ -17,14 +17,14 @@ export default function Doctorinfo() {
   }, [setSidebarOpen]);
   return (
     <>
-      <section className="mx-auto my-24 lg:mt-8 h-auto">
+      <section className="mx-auto my-24">
         <div className="lg:max-w-[70%] md:max-w-[90%] max-w-[90%] mx-auto bg-background-gradient rounded-lg  xl:flex lg:flex md:flex overflow-hidden">
           {/* Left Section - Image */}
           <div className="lg:w-2/5 md:p-0  px-2 py-5  relative flex flex-col justify-center items-center">
             <img
               src={img}
               alt="Doctor"
-              className="w-full object-cover   h-full rounded-md"
+              className="w-full object-cover border-cyan-200 border-2 border-r-0  h-full rounded-l-md "
             />{" "}
             <FaStar className="absolute indent-0 left-2 md:bottom-2 bottom-5 text-[5rem] text-[#46C8BC]" />
             <p className="absolute indent-0 md:bottom-8 bottom-11 text-2xl left-8 font-bold text-white ">

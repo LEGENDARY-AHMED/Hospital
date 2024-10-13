@@ -71,26 +71,23 @@ const Doctor = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    prevArrow: null,
+    slidesToScroll: 4,
     responsive: [
       {
         breakpoint: 1280,
-        settings: { slidesToShow: 4 },
+        settings: { slidesToShow: 4, slidesToScroll: 4 },
       },
       {
         breakpoint: 1024,
-        settings: { slidesToShow: 3 },
+        settings: { slidesToShow: 3, slidesToScroll: 3 },
       },
       {
         breakpoint: 768,
-        settings: { slidesToShow: 2 },
+        settings: { slidesToShow: 2 , slidesToScroll: 2 },
       },
       {
         breakpoint: 640,
-        settings: { slidesToShow: 1 },
+        settings: { slidesToShow: 1 , slidesToScroll: 1 },
       },
     ],
   };
@@ -102,7 +99,7 @@ const Doctor = () => {
   );
 
   return (
-    <div className="my-16 lg:mt-0">
+    <div className="my-16">
       <div className="w-[90%] mx-auto p-6">
         <div className="relative mb-6">
           <input
@@ -110,12 +107,13 @@ const Doctor = () => {
             value={searchQuery}
             onChange={handleSearchChange}
             placeholder="Search for doctors, specialties..."
-            className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
+            className="rounded-md p-4 w-full shadow-sm transition"
           />
+          {/* focus:border-gray-300  focus:outline-none focus:shadow-gray-300 */}
           <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
             <button
               onClick={handleSearch}
-              className="bg-blue-500 text-white p-2 rounded-md shadow hover:bg-blue-600 transition flex items-center justify-center"
+              className="p-2 flex items-center justify-center"
             >
               <FaSearch />
             </button>
@@ -173,7 +171,7 @@ const Doctor = () => {
                 <Link to="/Doctor-Info" key={index} className="p-4">
                   <div className="relative bg-white pb-6 overflow-hidden group">
                     <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
-                      <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
+                      <div className="absolute bottom-0 top-0 left-0 right-0 group-hover:bg-gradient-to-t from-blue-700/100 from-0% to-sky-100/5 to-25% transition-all duration-500 z-10"></div>
                       <img
                         src={doctor.img}
                         alt={doctor.name}

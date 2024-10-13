@@ -15,7 +15,7 @@ export default function Contact() {
   };
   return (
     <>
-      <section className="my-16">
+      <section className="h-screen flex items-center">
         <div className="relative w-full ">
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-3">
             <img
