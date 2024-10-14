@@ -3,7 +3,7 @@ import { FaQuoteLeft } from "react-icons/fa6";
 import { FaQuoteRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import Slider from "react-slick";
+import DoctorCard from "../Doctor Card/DoctorCard";
 import { AppNavigationContext } from "../../context/GlobalContext";
 import VectorImg from "./../../Unity Hospital/HomePage/Vector.png";
 import FrameImg1 from "./../../Unity Hospital/HomePage/Frame 36.png";
@@ -65,23 +65,6 @@ export default function HomePage() {
       rating: "4.8/5",
     },
   ];
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    prevArrow: null,
-    responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 4 } },
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
-    ],
-  };
 
   return (
     <>
@@ -436,34 +419,12 @@ export default function HomePage() {
             Find more
           </Link>
         </div>
-        <Slider {...settings}>
-          {doctors.map((doctor, index) => (
-            <Link to="/Doctor-Info" key={index} className="p-4">
-              <div className="relative bg-white pb-6 overflow-hidden group">
-                <div className="border-b-2 border-[#1e8acb] relative overflow-hidden">
-                  <div className="absolute inset-0 group-hover:bg-gradient-to-t from-blue-700/100 via-gray-800/5 to-sky-100/5 transition-all duration-500 z-10"></div>
-                  <img
-                    src={doctor.img}
-                    alt={doctor.name}
-                    className="transition-transform duration-300 transform group-hover:scale-105 mx-auto"
-                  />
-                </div>
-                <div className="px-5">
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    {doctor.name}
-                  </h3>
-                  <div className="flex justify-between mt-2 items-center">
-                    <p className="text-blue-600 mb-2">{doctor.specialty}</p>
-                    <p className="flex justify-center items-center">
-                      {doctor.rating}
-                      <FaStar className="text-[#46C8BC] ml-1" />
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </Slider>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  {doctors.map((doctor, index) => (
+    <DoctorCard key={index} doctor={doctor} />
+  ))}
+</div>
+
         <button className="w-[100%] font-semibold text-white text-xl md:hidden py-4 mt-5 rounded-md bg-[#1E8ACB]">
           Find more Doctors
         </button>
