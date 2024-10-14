@@ -1,0 +1,12 @@
+.slick-next:before,
+.slick-prev:before {
+  font-size: 35px !important;
+  color: #1e8acb !important;
+}
+.slick-prev,
+.slick-next {
+  top: 40% !important;
+}
+
+
+
