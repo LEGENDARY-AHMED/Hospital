@@ -282,14 +282,14 @@ export default function HomePage() {
           </h2>
 
           {/* Grid Container */}
-          <div className=" grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 md:grid-cols-3 gap-6">
+          <div className=" grid grid-cols-2 lg:grid-cols-4 xl:w-[90%] mx-auto md:grid-cols-3 gap-6">
             {/* Emergency Medicine */}
             <Link to="/field">
               <div className="relative group overflow-hidden shadow-lg">
                 <img
                   src={Mask1}
                   alt="Emergency Medicine"
-                  className="object-center h-64 w-full  transition-transform duration-300 group-hover:scale-110"
+                  className="object-center h-64 w-full transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0  transition-opacity duration-300 group-hover:bg-blue-500/70 "></div>
                 <div class="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -424,7 +424,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="mt-14 xl:w-[80%] lg:w-[80%] md:w-[80%] w-[90%] mx-auto">
+      <section className="mt-14 overflow-hidden md:w-[80%] w-[90%] mx-auto">
         <div className="flex justify-between">
           <h1 className="xl:text-3xl text-2xl font-bold text-[#1E8ACB] mb-9">
             Top Rated Doctors
@@ -468,9 +468,9 @@ export default function HomePage() {
           Find more Doctors
         </button>
       </section>
-      <section className="mt-36">
-        <div className="relative bg-background-gradient py-8">
-          <div className="container mx-auto grid  grid-cols-1 md:grid-cols-2 gap-6 px-4 relative z-10">
+      <section className="mt-36 overflow-hidden ">
+        <div className="relative bg-background-gradient py-11">
+          <div className="container mx-auto grid  grid-cols-1 my-7 md:my-0 md:grid-cols-2 md:gap-11  gap-14 px-4 relative z-10">
             {/* Left side: Form */}
             <div className="flex items-center justify-center xl:text-left lg:text-left  text-center ">
               <form>
@@ -488,7 +488,7 @@ export default function HomePage() {
                 />
                 <button
                   type="submit"
-                  className="xl:w-96 lg:w-96 md:w-80 w-80 py-2 border border-white text-white rounded-lg hover:bg-background-gradient  transition duration-300 text-lg font-bold"
+                  className="xl:w-96 lg:w-96 md:w-80 w-80 py-2 border border-white  hover:drop-shadow-lg text-white rounded-lg  hover:bg-blue-200/35   transition duration-300 text-lg font-bold"
                 >
                   Submit
                 </button>
@@ -496,16 +496,16 @@ export default function HomePage() {
             </div>
 
             {/* Right side: Quote */}
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center ">
               <div className="text-center text-white relative">
-                <FaQuoteLeft className="text-3xl" />
-                <blockquote className="text-xl font-bold">
+                <FaQuoteLeft className="text-3xl absolute -left-4 -top-5  " />
+                <blockquote className="md:text-2xl text-xl font-bold">
                   Your health is your wealth
                 </blockquote>
-                <p className="text-base">
+                <p className="md:text-xl ">
                   Choose the best care with the best <strong>doctors</strong>.
                 </p>
-                <FaQuoteRight className="text-3xl absolute lg:left-80 md:left-80 xl:left-80 left-72 overflow-hidden" />
+                <FaQuoteRight className="text-3xl absolute  md:left-96 left-[96%]  overflow-hidden" />
               </div>
             </div>
           </div>

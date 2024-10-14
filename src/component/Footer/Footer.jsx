@@ -31,7 +31,7 @@ export default function Footer() {
                 <li className="mb-2">
                   <Link
                     to="/Home"
-                    className="text-black font-semibold hover:text-c2"
+                    className="text-black font-semibold hover:text-[#1E8ACB]"
                   >
                     Home
                   </Link>
@@ -40,7 +40,7 @@ export default function Footer() {
                 <li className="mb-2">
                   <Link
                     to="/Find-a-doctor"
-                    className="text-black  font-semibold hover:text-c2"
+                    className="text-black  font-semibold hover:text-[#1E8ACB]"
                   >
                     Doctors
                   </Link>
@@ -49,7 +49,7 @@ export default function Footer() {
                 <li className="mb-2">
                   <Link
                     to="/Contact-us"
-                    className="text-black font-semibold  hover:text-c2"
+                    className="text-black font-semibold  hover:text-[#1E8ACB]"
                   >
                     Contact us
                   </Link>
@@ -58,7 +58,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/About-us"
-                    className="text-black font-semibold  hover:text-c2"
+                    className="text-black font-semibold  hover:text-[#1E8ACB]"
                   >
                     About us
                   </Link>
@@ -90,14 +90,14 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="border-t border-gray-700 mt-6 pt-4 xl:flex lg:flex md:flex justify-between">
+          <div className="border-t border-gray-700 mt-6 pt-4  md:flex justify-between">
             <p className="mb-2">Copyright 2024 © UnityHospital</p>
             <p>
-              <a href="#" className="text-black hover:underline">
+              <a href="#" className="text-black hover:underline mr-6 ">
                 Privacy Policy
               </a>
               |
-              <a href="#" className="text-black hover:underline">
+              <a href="#" className="text-black ml-6 hover:underline">
                 Terms of Use
               </a>
             </p>

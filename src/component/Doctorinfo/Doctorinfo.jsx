@@ -89,7 +89,7 @@ export default function Doctorinfo() {
 
       <section className="lg:w-[80%] w-[90%] mx-auto my-20">
         <div>
-          <h1 className="font-semibold mb-9  text-c2 text-2xl">Top Rating:</h1>
+          <h1 className="font-semibold mb-9  text-c2 text-2xl">Top Rating</h1>
         </div>
         <div className="grid md:grid-cols-3 gap-y-9 gap-x-8">
           <div>
