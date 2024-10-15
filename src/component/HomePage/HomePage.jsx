@@ -3,6 +3,7 @@ import { FaQuoteLeft } from "react-icons/fa6";
 import { FaQuoteRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
+
 import Slider from "react-slick";
 import { AppNavigationContext } from "../../context/GlobalContext";
 import VectorImg from "./../../Unity Hospital/HomePage/Vector.png";
@@ -86,43 +87,44 @@ export default function HomePage() {
   return (
     <>
       <section>
-        <div className="xl:grid grid-cols-2 lg:grid md:grid  mb-7 flex flex-col-reverse items-center mt-28 lg:mt-0   ">
-          <div>
+        <div className=" grid-cols-2 md:grid   mb-7 flex flex-col-reverse items-center mt-28 lg:mt-0   ">
+          <div className="w-[80%]">
             <div className="flex gap-5 items-center align-middle">
               <img
                 src={VectorImg}
                 className="w-[11%] xl:block lg:block md:block  hidden"
                 alt=""
               />
-              <div className="mt-11 w-[80%]  mx-auto">
-                <p className="text-[#1E8ACB] text-xl font-bold">Welcome to</p>
-                <div>
-                  <h1 className="xl:text-5xl lg:text-4xl md:text-4xl text-3xl font-bold ">
+              <div className="mt-11   mx-auto">
+                <p className="text-[#1E8ACB] text-2xl font-bold">Welcome to</p>
+                <div className="w-full">
+                  <h1 className="xl:text-[4.2rem] lg:text-5xl md:text-[2.8rem]   text-5xl font-bold ">
                     Unity Hospital
-                    <p className="text-[#1E8ACB] mt-2 font-bold md:text-4xl text-[1.7rem] xl:text-[2.7rem] lg:text-[2rem]">
+                    <p className="text-[#1E8ACB] mt-2 font-bold xl:text-6xl lg:text-[2.7rem] text-[2.48rem]   ">
                       Top Quality care
                     </p>
                   </h1>
                 </div>
 
-                <article className="text-cgray font-light text-xl xl:max-w-[66%] md:w-[80%] lg:w-[70%] w-72 mt-7 mb-7">
+                <article className="text-cgray font-light text-xl   mt-7 mb-7">
                   we unite advanced medical expertise with compassionate care to
                   ensure the health and well-being of our community.
                 </article>
-                <div className=" items-center md:flex gap-2 mb-6">
-                  <Link to="/Find-a-doctor">
-                    <button className="bg-[#1E8ACB] xl:w-56 lg:w-[11.6rem] w-full font-bold xl:text-xl lg:text-lg md:text-base text-lg xl:px-14 lg:px-11  text-white px-7 rounded-md py-4 md:px-9  hover:shadow-inner hover:shadow-sky-300">
-                      Get Started
+
+                <section className="w-full">
+                  <div className="flex flex-col md:flex-row items-center w-full gap-4 mb-6">
+                    <button className="w-full md:flex-1 bg-[#1E8ACB] font-bold border-[#1E8ACB] border xl:text-2xl lg:text-xl md:text-lg text-lg hover:-translate-y-0.5 hover:shadow-lg hover:shadow-cyan-200 transition duration-300 ease-in-out text-white rounded-md py-4">
+                      <Link to="/Find-a-doctor">Get Started</Link>
                     </button>
-                  </Link>
-                  <Link to="/Contact-us">
-                    <button className="bg-transparent xl:w-52 lg:w-[10.9rem] w-full xl:mt-0 lg:mt-0 md:mt-0 mt-2  rounded-md text-black lg:px-10  xl:text-xl lg:text-lg text-lg  font-bold border border-black md:px-5 xl:px-12  px-7 py-3 hover:shadow-md">
-                      Contact Us
+
+                    <button className="w-full md:flex-1 bg-transparent text-black hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-md duration-300 font-bold border border-black xl:text-2xl lg:text-xl md:text-lg text-lg py-4 rounded-md">
+                      <Link to="/Contact-us"> Contact Us</Link>
                     </button>
-                  </Link>
-                </div>
-                <div className="">
-                  <ul className="xl:flex-nowrap lg:flex-nowrap md:flex-nowrap  sm:flex-nowrap flex flex-wrap opacity-70  justify-center items-center  align-middle lg:max-w-[95%] xl:max-w-[85%] md:w-[90%]">
+                  </div>
+                </section>
+
+                <div className="w-full">
+                  <ul className="xl:flex-nowrap lg:flex-nowrap md:flex-nowrap  sm:flex-nowrap flex flex-wrap opacity-70  justify-center items-center  align-middle ">
                     <li>
                       <img src={FrameImg1} alt="" />
                     </li>
@@ -152,7 +154,7 @@ export default function HomePage() {
             <img
               src={Group9}
               alt=""
-              className="xl:hidden lg:hidden md:hidden  w-[200%] shadow-md  shadow-[#1E8ACB] "
+              className="xl:hidden lg:hidden md:hidden sm:shadow-sm  w-[200%] shadow-md  shadow-[#1E8ACB] "
             />
           </div>
         </div>
@@ -274,7 +276,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="w-[90%] xl:w-[80%] lg:w-[85%] md:mt-[28rem]  mt-[19rem]  mx-auto">
+      <section className="w-[90%] mx-auto   xl:w-[80%] lg:w-[85%] md:mt-[28rem]  mt-[19rem] ">
         <div className="container mx-auto py-8">
           {/* Section Title */}
           <h2 className="xl:text-4xl text-2xl font-bold text-[#1E8ACB] mb-11">
