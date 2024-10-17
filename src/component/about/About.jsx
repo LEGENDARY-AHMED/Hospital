@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import img from "./../../Unity Hospital/About us/Main.png";
+import img from "./../../assets/About us/Main.png";
 import { AppNavigationContext } from "../../context/GlobalContext";
 import { Helmet } from "react-helmet";
 
@@ -14,7 +14,7 @@ const About = () => {
       <Helmet>
         <title>About - Unity Hospital</title>
       </Helmet>
-      <section className="w-[90%] mx-auto my-24">
+      <section className="2xl:container w-[85%] mx-auto my-24">
         <img
           src={img}
           className="w-full object-cover"

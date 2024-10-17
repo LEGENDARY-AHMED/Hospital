@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Logo from "./../../Unity Hospital/Logo/Logo.png";
-import Logo2 from "./../../Unity Hospital/Logo/Logo2.jpg";
+import Logo from "./../../assets/Logo/Logo.png";
+import Logo2 from "./../../assets/Logo/Logo2.jpg";
 import { FaHome, FaUserMd, FaPhoneAlt, FaInfoCircle } from "react-icons/fa";
 import { AppNavigationContext } from "../../context/GlobalContext";
 import { Authenticate } from "../../context/AutheContext";
@@ -39,7 +39,7 @@ const NavbarComponent = () => {
     <>
       {isSidebarOpen ? (
         <nav className="dark:bg-gray-900 bg-white fixed w-full z-20 top-0 start-0">
-          <div className="flex flex-wrap items-center justify-between w-[80%] mx-auto py-4">
+          <div className="flex flex-wrap items-center justify-between w-[85%] mx-auto py-4">
             <Link to="/Home">
               <img src={Logo} className="h-12" alt="Logo" />
             </Link>

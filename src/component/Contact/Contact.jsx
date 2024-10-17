@@ -1,9 +1,10 @@
 import { useContext, useEffect } from "react";
 import { AppNavigationContext } from "../../context/GlobalContext";
 
-import img from "./../../Unity Hospital/Contact Us/Group 79.png";
-import img2 from "./../../Unity Hospital/HomePage/Vector.png";
-import img3 from "./../../Unity Hospital/Contact Us/Group 72.png";
+import img from "./../../assets/Contact Us/Group 79.png";
+import img2 from "./../../assets/HomePage/Vector.png";
+import img3 from "./../../assets/Contact Us/Group 72.png";
+import { Helmet } from "react-helmet";
 
 export default function Contact() {
   const { setSidebarOpen } = useContext(AppNavigationContext);
@@ -15,7 +16,10 @@ export default function Contact() {
   };
   return (
     <>
-      <section className="h-screen flex items-center">
+       <Helmet>
+        <title>Contact us - Unity Hospital</title>
+      </Helmet>
+      <section className="my-16 2xl:container mx-auto">
         <div className="relative w-full ">
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-3">
             <img

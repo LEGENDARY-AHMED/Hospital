@@ -2,10 +2,10 @@ import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoTriangleRight } from "react-icons/go";
 import { AiOutlineWarning } from "react-icons/ai";
-import Google from "./../../Unity Hospital/Login/Social/Group 46.png";
-import Facebook from "./../../Unity Hospital/Login/Social/Group 45.png";
-import Apple from "./../../Unity Hospital/Login/Social/Group 44.png";
-import img from "./../../Unity Hospital/Login/cuate.png";
+import Google from "./../../assets/Login/Social/Group 46.png";
+import Facebook from "./../../assets/Login/Social/Group 45.png";
+import Apple from "./../../assets/Login/Social/Group 44.png";
+import img from "./../../assets/Login/cuate.png";
 import { Helmet } from "react-helmet";
 import { AppNavigationContext } from "../../context/GlobalContext";
 import axios from "axios";
@@ -65,7 +65,7 @@ const Login = () => {
       <Helmet>
         <title>Login - Unity Hospital</title>
       </Helmet>
-      <section className="flex flex-col lg:flex-row items-center h-screen gap-24 justify-center w-[80%] m-auto pt-10 ">
+      <section className="flex flex-col lg:flex-row items-center h-screen gap-24 justify-center w-[80%] m-auto pt-10 2xl:container ">
         <form
           onSubmit={formik.handleSubmit}
           className="flex flex-col items-center gap-6 w-full lg:w-2/5 2xl:w-1/2 text-center"

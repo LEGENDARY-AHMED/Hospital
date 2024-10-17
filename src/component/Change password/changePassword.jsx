@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import img from "./../../Unity Hospital/Confirm.png";
+import img from "./../../assets/Confirm.png";
 import { AppNavigationContext } from "../../context/GlobalContext";
 import { GoTriangleRight } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,7 @@ const Change = () => {
         <title>Forgot Password - Unity Hospital</title>
       </Helmet>
 
-      <section className="flex flex-col items-center justify-center h-screen">
+      <section className="flex flex-col items-center justify-center h-screen 2xl:container my-auto">
         <form className="flex flex-col text-center lg:pb-0 p-6 lg:p-12 border-2 lg:border-0 order-2 lg:order-1 w-full max-w-lg lg:max-w-none bg-white rounded-lg shadow-lg lg:shadow-none">
           <h1 className="text-3xl lg:text-5xl font-bold text-[#46C8BC] mb-4 lg:mb-6">
             Change Your Password

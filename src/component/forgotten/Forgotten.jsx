@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import img from "./../../Unity Hospital/Forgot.png";
+import img from "./../../assets/Forgot.png";
 import { Link, useNavigate } from "react-router-dom";
 import { AppNavigationContext } from "../../context/GlobalContext";
 import { GoTriangleRight } from "react-icons/go";
@@ -46,7 +46,7 @@ const Forgotten = () => {
         <title>Forgot Password - Unity Hospital</title>
       </Helmet>
 
-      <section className="flex flex-col items-center justify-center h-screen">
+      <section className="flex flex-col items-center justify-center h-screen 2xl:container mx-auto">
         <form
           onSubmit={formik.handleSubmit}
           className="flex flex-col text-center lg:pb-5 p-6 lg:p-12 border-2 lg:border-0 order-2 lg:order-1 w-full max-w-lg lg:max-w-none bg-white rounded-lg shadow-lg lg:shadow-none"
