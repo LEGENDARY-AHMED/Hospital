@@ -14,7 +14,7 @@ const About = () => {
       <Helmet>
         <title>About - Unity Hospital</title>
       </Helmet>
-      <section className="2xl:container w-[85%] mx-auto my-24">
+      <section className="2xl:container w-[88%] mx-auto my-24">
         <img
           src={img}
           className="w-full object-cover"

@@ -90,7 +90,7 @@ const Doctors = () => {
         <title>Doctors - Unity Hospital</title>
       </Helmet>
       <div className="my-16 2xl:container mx-auto">
-        <div className="w-[90%] mx-auto p-6">
+        <div className="w-[92%] mx-auto p-6">
           <div className="relative mb-6">
             <input
               type="text"

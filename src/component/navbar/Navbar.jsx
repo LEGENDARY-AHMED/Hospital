@@ -58,7 +58,7 @@ const NavbarComponent = () => {
     <>
       {isSidebarOpen ? (
         <nav className="dark:bg-gray-900 bg-white fixed w-full z-20 top-0 start-0">
-          <div className="flex flex-wrap items-center justify-between w-[85%] mx-auto py-4">
+          <div className="flex flex-wrap items-center justify-between w-[89%] mx-auto py-4">
             <Link to="/Home">
               <img src={Logo} className="h-12" alt="Logo" />
             </Link>

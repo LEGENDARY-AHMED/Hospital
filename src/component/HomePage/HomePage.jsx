@@ -410,7 +410,7 @@ export default function HomePage() {
       </section>
       <section className="mt-14 overflow-hidden md:w-[80%] w-[90%] mx-auto">
         <div className="flex justify-between">
-          <h1 className="xl:text-3xl text-2xl font-bold text-[#1E8ACB] mb-9">
+          <h1 className="xl:text-3xl text-2xl font-semibold text-[#1E8ACB] mb-9">
             Top Rated Doctors
           </h1>
           <Link
