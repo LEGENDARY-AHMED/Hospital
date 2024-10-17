@@ -34,8 +34,9 @@ const Doctors = () => {
     }
   };
 
-  const handleTagRemove = (tagToRemove) =>
-    setTags(tags.filter((tag) => tag !== tagToRemove));
+  const handleTagClick = (tag) => {
+    setSearchQuery(tag);
+  };
 
   const doctors = [
     {
@@ -114,8 +115,10 @@ const Doctors = () => {
             {tags.map((tag, index) => (
               <button
                 key={index}
-                onClick={() => handleTagRemove(tag)}
-                className="px-4 py-2 bg-gray-200 rounded-full hover:bg-blue-500 hover:text-white transition"
+                onClick={() => handleTagClick(tag)}
+                className={`px-4 py-2 rounded-full ${
+                  searchQuery === tag ? "bg-blue-500 text-white" : "bg-gray-200"
+                } hover:bg-blue-500 hover:text-white transition`}
               >
                 {tag}
               </button>
