@@ -37,18 +37,15 @@ const NavbarComponent = () => {
 
   const userImage = "";
 
-  // Effect to handle clicks outside the sidebar
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        setIsOpen(false); // Close the sidebar
+        setIsOpen(false);
       }
     };
 
-    // Add event listener
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Cleanup function to remove event listener
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -216,7 +213,7 @@ const NavbarComponent = () => {
                 <FaHome className="mr-3 text-[#1E8ACB]" />
                 <span>Home</span>
               </NavLink>
-              
+
               <NavLink
                 to="/Find-a-doctor"
                 className={({ isActive }) =>
@@ -235,7 +232,7 @@ const NavbarComponent = () => {
                     isActive ? "text-[#1E8ACB]" : "text-gray-600"
                   } hover:bg-gray-200`
                 }
-                >
+              >
                 <FaPhoneAlt className="mr-3 text-[#1E8ACB]" />
                 <span>Contact us</span>
               </NavLink>
@@ -250,7 +247,6 @@ const NavbarComponent = () => {
                 <FaInfoCircle className="mr-3 text-[#1E8ACB]" />
                 <span>About us</span>
               </NavLink>
-              
             </ul>
 
             <div className="w-[90%] my-4 m-auto border-t border-gray-300"></div>
@@ -285,7 +281,7 @@ const NavbarComponent = () => {
           </div>
         </nav>
       ) : (
-        <nav className="dark:bg-gray-900 bg-white top-0 start-0 end-0 fixed">
+        <nav className="dark:bg-gray-900 bg-white top-0 start-0 end-0 fixed mb-5">
           <div className="grid w-[80%] m-auto items-center p-3 grid-cols-2">
             <Link to="/Home">
               <img src={Logo} className="h-12" alt="Logo" />
@@ -305,4 +301,3 @@ const NavbarComponent = () => {
 };
 
 export default NavbarComponent;
-
