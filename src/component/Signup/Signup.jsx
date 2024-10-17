@@ -76,8 +76,10 @@ const Signup = () => {
           onSubmit={formik.handleSubmit}
           className="flex flex-col items-center gap-3 w-full lg:w-1/2 text-center"
         >
-          <h1 className="text-3xl font-bold text-[#46C8BC]">Signup</h1>
-          <p className="text-gray-600 font-semibold text-xs mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#46C8BC] mb-2">
+            Signup
+          </h1>
+          <p className="text-gray-600 font-semibold text-sm mb-3">
             Welcome to Unity Hospital, where we provide top-quality care
           </p>
 

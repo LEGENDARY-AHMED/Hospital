@@ -65,11 +65,10 @@ const Login = () => {
       <Helmet>
         <title>Login - Unity Hospital</title>
       </Helmet>
-      <section className="flex flex-col lg:flex-row items-center h-screen gap-10 justify-center w-full m-auto px-4 md:px-10 pt-10 lg:pt-0 2xl:container">
+      <section className="flex flex-col lg:flex-row items-center gap-16 justify-center w-[80%] m-auto pt-10 h-screen 2xl:container">
         <form
           onSubmit={formik.handleSubmit}
-          className="flex flex-col items-center gap-2 w-full lg:w-2/5 text-center"
-          aria-label="Login Form"
+          className="flex flex-col items-center gap-3 w-full lg:w-1/2 text-center"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-[#46C8BC] mb-2">
             Login
@@ -187,12 +186,8 @@ const Login = () => {
           </Link>
         </form>
 
-        <div className="hidden lg:flex justify-center items-center lg:w-3/5 2xl:w-2/5">
-          <img
-            src={img}
-            alt="Illustration"
-            className="w-full h-auto max-w-lg object-contain"
-          />
+        <div className="hidden lg:flex justify-center items-center lg:w-1/2 2xl:w-1/3">
+          <img src={img} alt="Illustration" />
         </div>
       </section>
     </>
