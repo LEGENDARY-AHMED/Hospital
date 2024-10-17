@@ -65,14 +65,16 @@ const Login = () => {
       <Helmet>
         <title>Login - Unity Hospital</title>
       </Helmet>
-      <section className="flex flex-col lg:flex-row items-center h-screen gap-24 justify-center w-[80%] m-auto pt-10 2xl:container ">
+      <section className="flex flex-col lg:flex-row items-center h-screen gap-10 justify-center w-full m-auto px-4 md:px-10 pt-10 lg:pt-0 2xl:container">
         <form
           onSubmit={formik.handleSubmit}
-          className="flex flex-col items-center gap-4 w-full lg:w-2/5 2xl:w-1/2 text-center"
+          className="flex flex-col items-center gap-2 w-full lg:w-2/5 text-center"
           aria-label="Login Form"
         >
-          <h1 className="text-5xl font-bold text-[#46C8BC]">Login</h1>
-          <p className="text-gray-600 font-semibold text-sm mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#46C8BC] mb-2">
+            Login
+          </h1>
+          <p className="text-gray-600 font-semibold text-sm mb-3">
             Top-quality care for our community
           </p>
 
@@ -137,7 +139,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="flex items-center justify-center p-1.5 w-full text-2xl font-medium text-white rounded-lg bg-[#46C8BC] hover:bg-[#4F8E89] focus:ring-2 focus:ring-teal-500 focus:outline-none"
+            className="flex items-center justify-center p-1.5 w-full text-2xl font-medium text-white rounded-lg bg-[#46C8BC] hover:bg-[#4F8E89] focus:ring-2 focus:ring-teal-500 focus:outline-none transition-all duration-150 ease-in-out disabled:opacity-50"
             disabled={formik.isSubmitting || loading || !formik.isValid}
           >
             {loading ? "Logging in..." : "Login"}
@@ -150,7 +152,7 @@ const Login = () => {
             <div className="flex-grow border-t border-gray-900"></div>
           </div>
 
-          <div className="flex justify-between gap-5 w-[70%]">
+          <div className="flex justify-between gap-5 w-full max-w-[70%]">
             <img
               src={Google}
               alt="Google login"
@@ -185,8 +187,12 @@ const Login = () => {
           </Link>
         </form>
 
-        <div className="hidden lg:flex justify-center items-center lg:w-3/5 2xl:w-1/2">
-          <img src={img} alt="Illustration" className="w-full h-auto" />
+        <div className="hidden lg:flex justify-center items-center lg:w-3/5 2xl:w-2/5">
+          <img
+            src={img}
+            alt="Illustration"
+            className="w-full h-auto max-w-lg object-contain"
+          />
         </div>
       </section>
     </>

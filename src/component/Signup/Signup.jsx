@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { GoTriangleRight } from "react-icons/go";
 import { Helmet } from "react-helmet";
-import axios from "axios"; 
+import axios from "axios";
 import Google from "./../../assets/Signup/Social/Group 46.png";
 import Facebook from "./../../assets/Signup/Social/Group 45.png";
 import Apple from "./../../assets/Signup/Social/Group 44.png";
@@ -15,6 +15,7 @@ const Signup = () => {
   const { setSidebarOpen } = useContext(AppNavigationContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     setSidebarOpen(false);
   }, [setSidebarOpen]);
@@ -70,13 +71,13 @@ const Signup = () => {
         <title>Signup - Unity Hospital</title>
       </Helmet>
 
-      <section className="flex flex-col lg:flex-row items-center gap-24 justify-center w-[80%] m-auto pt-10 h-screen 2xl:container">
+      <section className="flex flex-col lg:flex-row items-center gap-16 justify-center w-[80%] m-auto pt-10 h-screen 2xl:container">
         <form
           onSubmit={formik.handleSubmit}
-          className="flex flex-col items-center gap-4 w-full lg:w-2/5 2xl:w-1/2 text-center"
+          className="flex flex-col items-center gap-3 w-full lg:w-1/2 text-center"
         >
-          <h1 className="text-5xl font-bold text-[#46C8BC]">Signup</h1>
-          <p className="text-gray-600 font-semibold text-sm mb-2">
+          <h1 className="text-3xl font-bold text-[#46C8BC]">Signup</h1>
+          <p className="text-gray-600 font-semibold text-xs mb-2">
             Welcome to Unity Hospital, where we provide top-quality care
           </p>
 
@@ -88,11 +89,11 @@ const Signup = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.name}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
                 placeholder="First name"
               />
               {formik.touched.name && formik.errors.name ? (
-                <p className="text-red-500 text-sm text-start mt-1">
+                <p className="text-red-500 text-xs text-start mt-1">
                   {formik.errors.name}
                 </p>
               ) : null}
@@ -102,7 +103,7 @@ const Signup = () => {
               <input
                 type="text"
                 name="lastName"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
                 placeholder="Last name"
               />
             </div>
@@ -115,11 +116,11 @@ const Signup = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
               placeholder="Email"
             />
             {formik.touched.email && formik.errors.email ? (
-              <p className="text-red-500 text-sm text-start mt-1">
+              <p className="text-red-500 text-xs text-start mt-1">
                 {formik.errors.email}
               </p>
             ) : null}
@@ -132,11 +133,11 @@ const Signup = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.password}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
               placeholder="Password"
             />
             {formik.touched.password && formik.errors.password ? (
-              <p className="text-red-500 text-sm text-start mt-1">
+              <p className="text-red-500 text-xs text-start mt-1">
                 {formik.errors.password}
               </p>
             ) : null}
@@ -149,11 +150,11 @@ const Signup = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.rePassword}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2"
               placeholder="Confirm Password"
             />
             {formik.touched.rePassword && formik.errors.rePassword ? (
-              <p className="text-red-500 text-sm text-start mt-1">
+              <p className="text-red-500 text-xs text-start mt-1">
                 {formik.errors.rePassword}
               </p>
             ) : null}
@@ -161,7 +162,7 @@ const Signup = () => {
 
           <button
             type="submit"
-            className="flex items-center justify-center p-1.5 w-full text-2xl font-medium text-white rounded-lg bg-[#46C8BC] hover:bg-[#4F8E89] focus:ring-2 focus:ring-teal-500 focus:outline-none"
+            className="flex items-center justify-center p-1.5 w-full text-xl font-medium text-white rounded-lg bg-[#46C8BC] hover:bg-[#4F8E89] focus:ring-2 focus:ring-teal-500 focus:outline-none"
             disabled={formik.isSubmitting || loading}
           >
             {loading ? "Signing up..." : "Sign up"}
@@ -170,7 +171,7 @@ const Signup = () => {
 
           <div className="flex items-center my-1 w-full">
             <div className="flex-grow border-t border-gray-900"></div>
-            <p className="text-gray-500 font-bold mx-1">OR</p>
+            <p className="text-gray-500 font-bold mx-1 text-xs">OR</p>
             <div className="flex-grow border-t border-gray-900"></div>
           </div>
 
@@ -178,39 +179,39 @@ const Signup = () => {
             <img
               src={Google}
               alt="Google login"
-              className="w-12 cursor-pointer hover:scale-105 transition-transform"
+              className="w-10 cursor-pointer hover:scale-105 transition-transform"
             />
             <img
               src={Facebook}
               alt="Facebook login"
-              className="w-12 cursor-pointer hover:scale-105 transition-transform"
+              className="w-10 cursor-pointer hover:scale-105 transition-transform"
             />
             <img
               src={Apple}
               alt="Apple login"
-              className="w-12 cursor-pointer hover:scale-105 transition-transform"
+              className="w-10 cursor-pointer hover:scale-105 transition-transform"
             />
           </div>
 
-          <p className="text-gray-400">
+          <p className="text-gray-400 text-xs">
             Already have an account?
             <Link
               to="/Login"
-              className="text-sm text-blue-700 hover:text-blue-700 cursor-pointer"
+              className="text-xs text-blue-700 hover:text-blue-700 cursor-pointer"
             >
               Login
             </Link>
           </p>
           <Link
             to="/Home"
-            className="text-sm text-blue-700 hover:text-blue-700 cursor-pointer m-auto text-center"
+            className="text-xs text-blue-700 hover:text-blue-700 cursor-pointer m-auto text-center"
           >
             Skip for later
           </Link>
         </form>
 
-        <div className="hidden lg:flex justify-center items-center lg:w-3/5 2xl:w-1/2">
-          <img src={img} alt="Illustration" className="w-full h-auto" />
+        <div className="hidden lg:flex justify-center items-center lg:w-1/2 2xl:w-1/3">
+          <img src={img} alt="Illustration" />
         </div>
       </section>
     </>
