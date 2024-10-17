@@ -7,13 +7,13 @@ import Forgotten from "./component/Forgotten/Forgotten";
 import Verify from "./component/Verify/Verify";
 import About from "./component/About/About";
 import Change from "./component/Change password/changePassword";
-import Doctor from "./component/Doctor/Doctor";
+import Doctors from "./component/Doctors/Doctors";
 import AppGlobalProvider from "./context/GlobalContext";
 import AuthenticateProvider from "./context/AutheContext";
 import HomePage from "./component/HomePage/HomePage";
 import Contact from "./component/Contact/Contact";
 import Doctorinfo from "./component/Doctorinfo/Doctorinfo";
-import ScrollToTop from "./context/ScrollToTop/ScrollToTop";
+import ScrollToTop from "./context/ScrollToTop";
 import Field from "./component/Field/Field";
 
 export default function App() {
@@ -36,7 +36,7 @@ export default function App() {
         { path: "/Verify", element: <Verify /> },
         { path: "/Change-pass", element: <Change /> },
         { path: "/About-us", element: <About /> },
-        { path: "/Find-a-doctor", element: <Doctor /> },
+        { path: "/Find-a-doctor", element: <Doctors /> },
         { path: "/Home", element: <HomePage /> },
         { path: "/Contact-us", element: <Contact /> },
         { path: "/Doctor-Info", element: <Doctorinfo /> },
