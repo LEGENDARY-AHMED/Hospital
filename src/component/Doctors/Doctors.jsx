@@ -30,7 +30,6 @@ const Doctors = () => {
       if (newTags.length > 7) newTags.shift();
 
       setTags(newTags);
-      setSearchQuery("");
     }
   };
 
