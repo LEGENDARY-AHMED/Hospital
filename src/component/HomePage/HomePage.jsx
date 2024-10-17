@@ -250,9 +250,9 @@ export default function HomePage() {
             height="360"
             src="https://www.youtube.com/embed/fXmAurh012s"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
             poster="Unity Hospital/HomePage/image 6.png"
           ></iframe>
         </div>
@@ -276,8 +276,8 @@ export default function HomePage() {
                   className="object-center h-64 w-full transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0  transition-opacity duration-300 group-hover:bg-blue-500/70 "></div>
-                <div class="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
-                <div class="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+                <div className="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h3 className="text-white text-center mx-auto  text-3xl font-bold">
                     Emergency Medicine
@@ -294,8 +294,8 @@ export default function HomePage() {
                 className="object-center h-64  w-full  transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0  transition-opacity duration-300 group-hover:bg-blue-500/70 "></div>
-              <div class="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
-              <div class="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
 
               <div className="absolute inset-0 flex items-center justify-center">
                 <h3 className="text-white text-center mx-auto  text-3xl font-bold">
@@ -312,8 +312,8 @@ export default function HomePage() {
                 className="object-center h-64  w-full transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0  transition-opacity duration-300 group-hover:bg-blue-500/70 "></div>
-              <div class="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
-              <div class="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <h3 className="text-white text-center mx-auto  text-3xl font-bold">
                   Oncology
@@ -329,8 +329,8 @@ export default function HomePage() {
                 className="object-center h-64  w-full  transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0  transition-opacity duration-300 group-hover:bg-blue-500/70 "></div>
-              <div class="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
-              <div class="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <h3 className="text-white text-center mx-auto  text-3xl font-bold">
                   Orthopedics
@@ -346,8 +346,8 @@ export default function HomePage() {
                 className="object-center h-64  w-full  transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0  transition-opacity duration-300 group-hover:bg-blue-500/70 "></div>
-              <div class="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
-              <div class="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <h3 className="text-white text-center mx-auto  text-3xl font-bold">
                   Pediatrics
@@ -363,8 +363,8 @@ export default function HomePage() {
                 className="object-center h-64 w-full transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0  transition-opacity duration-300 group-hover:bg-blue-500/70 "></div>
-              <div class="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
-              <div class="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <h3 className="text-white text-center mx-auto   text-3xl font-bold">
                   Gynecology and Obstetrics
@@ -380,8 +380,8 @@ export default function HomePage() {
                 className="object-center h-64  w-full transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0  transition-opacity duration-300 group-hover:bg-blue-500/70 "></div>
-              <div class="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
-              <div class="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <h3 className="text-white text-center mx-auto  text-3xl font-bold">
                   Neurology
@@ -397,8 +397,8 @@ export default function HomePage() {
                 className="object-center h-64  w-full transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0  transition-opacity duration-300 group-hover:bg-blue-500/70 "></div>
-              <div class="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
-              <div class="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0  bg-gradient-to-t from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 hover:bg-blue-300 bg-gradient-to-b from-gray-800/100 via-gray-800/5 to-gray-900/30 group-hover:opacity-0 transition-opacity duration-500"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <h3 className="text-white text-center mx-auto md:text-[1.7rem]  text-[1.3rem] font-bold">
                   Gastroenterology

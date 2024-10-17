@@ -1,18 +1,20 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react"; // Import useEffect and useRef
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "./../../assets/Logo/Logo.png";
 import Logo2 from "./../../assets/Logo/Logo2.jpg";
 import { FaHome, FaUserMd, FaPhoneAlt, FaInfoCircle } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
+import { TbLogout } from "react-icons/tb";
 import { AppNavigationContext } from "../../context/GlobalContext";
 import { Authenticate } from "../../context/AutheContext";
 import { jwtDecode } from "jwt-decode";
-import { TbLogout } from "react-icons/tb";
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isSidebarOpen } = useContext(AppNavigationContext);
   const { setToken, token, userName } = useContext(Authenticate);
   const navigate = useNavigate();
+  const sidebarRef = useRef(null); // Create a ref for the sidebar
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -34,6 +36,23 @@ const NavbarComponent = () => {
   }
 
   const userImage = "";
+
+  // Effect to handle clicks outside the sidebar
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsOpen(false); // Close the sidebar
+      }
+    };
+
+    // Add event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup function to remove event listener
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -129,7 +148,7 @@ const NavbarComponent = () => {
                   </span>
                   <button
                     onClick={handleLogout}
-                    className="p-2.5  bg-gray-300 text-xl rounded-full"
+                    className="p-2.5 bg-gray-300 text-xl rounded-full"
                   >
                     <TbLogout />
                   </button>
@@ -153,30 +172,17 @@ const NavbarComponent = () => {
               <button
                 onClick={toggleSidebar}
                 type="button"
-                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                className="inline-flex items-center p-2 w-10 h-10 justify-center rounded-lg lg:hidden focus:outline-none"
                 aria-controls="navbar-sticky"
                 aria-expanded={isOpen}
               >
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 17 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 1h15M1 7h15M1 13h15"
-                  />
-                </svg>
+                <FiMenu className="w-6 h-6 text-teal-500" aria-hidden="true" />
               </button>
             </div>
           </div>
 
           <div
+            ref={sidebarRef} // Attach the ref to the sidebar
             className={`fixed top-0 left-0 h-screen w-72 bg-gray-100 text-white transform ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             } transition-transform duration-300 ease-in-out px-2`}
@@ -186,7 +192,7 @@ const NavbarComponent = () => {
                 <img
                   src={userImage || "https://via.placeholder.com/40"}
                   alt="User"
-                  className=" rounded-full"
+                  className="rounded-full"
                 />
                 <span className="text-gray-700">
                   {decoded?.name || userName}
@@ -210,6 +216,7 @@ const NavbarComponent = () => {
                 <FaHome className="mr-3 text-[#1E8ACB]" />
                 <span>Home</span>
               </NavLink>
+              
               <NavLink
                 to="/Find-a-doctor"
                 className={({ isActive }) =>
@@ -228,7 +235,7 @@ const NavbarComponent = () => {
                     isActive ? "text-[#1E8ACB]" : "text-gray-600"
                   } hover:bg-gray-200`
                 }
-              >
+                >
                 <FaPhoneAlt className="mr-3 text-[#1E8ACB]" />
                 <span>Contact us</span>
               </NavLink>
@@ -243,6 +250,7 @@ const NavbarComponent = () => {
                 <FaInfoCircle className="mr-3 text-[#1E8ACB]" />
                 <span>About us</span>
               </NavLink>
+              
             </ul>
 
             <div className="w-[90%] my-4 m-auto border-t border-gray-300"></div>
@@ -278,7 +286,7 @@ const NavbarComponent = () => {
         </nav>
       ) : (
         <nav className="dark:bg-gray-900 bg-white top-0 start-0 end-0 fixed">
-          <div className=" grid w-[80%] m-auto items-center p-3 grid-cols-2">
+          <div className="grid w-[80%] m-auto items-center p-3 grid-cols-2">
             <Link to="/Home">
               <img src={Logo} className="h-12" alt="Logo" />
             </Link>
@@ -297,3 +305,4 @@ const NavbarComponent = () => {
 };
 
 export default NavbarComponent;
+
