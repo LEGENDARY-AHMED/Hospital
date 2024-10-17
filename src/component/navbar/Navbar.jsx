@@ -281,7 +281,7 @@ const NavbarComponent = () => {
           </div>
         </nav>
       ) : (
-        <nav className="dark:bg-gray-900 bg-white top-0 start-0 end-0 fixed mb-5">
+        <nav className="dark:bg-gray-900 bg-white top-0 start-0 end-0 fixed">
           <div className="grid w-[80%] m-auto items-center p-3 grid-cols-2">
             <Link to="/Home">
               <img src={Logo} className="h-12" alt="Logo" />

@@ -71,7 +71,7 @@ const Signup = () => {
         <title>Signup - Unity Hospital</title>
       </Helmet>
 
-      <section className="flex flex-col lg:flex-row items-center gap-16 justify-center w-[80%] m-auto pt-10 h-screen 2xl:container">
+      <section className="flex flex-col lg:flex-row items-center gap-16 justify-center w-[80%] m-auto pt-28 h-screen 2xl:container">
         <form
           onSubmit={formik.handleSubmit}
           className="flex flex-col items-center gap-3 w-full lg:w-1/2 text-center"
