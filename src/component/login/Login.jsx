@@ -68,7 +68,7 @@ const Login = () => {
       <section className="flex flex-col lg:flex-row items-center h-screen gap-24 justify-center w-[80%] m-auto pt-10 2xl:container ">
         <form
           onSubmit={formik.handleSubmit}
-          className="flex flex-col items-center gap-6 w-full lg:w-2/5 2xl:w-1/2 text-center"
+          className="flex flex-col items-center gap-4 w-full lg:w-2/5 2xl:w-1/2 text-center"
           aria-label="Login Form"
         >
           <h1 className="text-5xl font-bold text-[#46C8BC]">Login</h1>
