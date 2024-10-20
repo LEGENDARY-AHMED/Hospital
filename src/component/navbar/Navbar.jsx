@@ -14,7 +14,7 @@ const NavbarComponent = () => {
   const { isSidebarOpen } = useContext(AppNavigationContext);
   const { setToken, token, userName } = useContext(Authenticate);
   const navigate = useNavigate();
-  const sidebarRef = useRef(null); // Create a ref for the sidebar
+  const sidebarRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -154,13 +154,14 @@ const NavbarComponent = () => {
                 <div className="hidden lg:flex justify-between items-center space-x-2">
                   <Link
                     to="/Login"
-                    className="py-1 px-7 bg-gradient-to-r from-cyan-500 to-[#46C8BC] text-white rounded-md hover:shadow-sm hover:shadow-[#46C8BC]"
+                    className="py-1 px-7 bg-gradient-to-r from-cyan-500 to-[#46C8BC] text-white rounded-md outline hover:outline-offset-2 hover:outline-cyan-400"
                   >
                     Login
                   </Link>
+
                   <Link
                     to="/Sign-up"
-                    className="py-1 px-7 bg-transparent text-sky-300 border-b-2 border-e-2 border-sky-300 rounded-md hover:border"
+                    className="py-1 px-7 bg-transparent text-sky-300 border-2 border-sky-300 rounded-md hover:shadow-md "
                   >
                     Sign up
                   </Link>
@@ -177,10 +178,12 @@ const NavbarComponent = () => {
               </button>
             </div>
           </div>
-
+          {isOpen && (
+            <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
+          )}
           <div
-            ref={sidebarRef} // Attach the ref to the sidebar
-            className={`fixed top-0 left-0 h-screen w-72 bg-gray-100 text-white transform ${
+            ref={sidebarRef}
+            className={`fixed top-0 left-0 h-screen w-72 bg-gray-100 text-white transform z-20 ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             } transition-transform duration-300 ease-in-out px-2`}
           >
@@ -265,13 +268,13 @@ const NavbarComponent = () => {
                 <>
                   <Link
                     to="/Login"
-                    className="py-1 px-7 text-center bg-gradient-to-r from-cyan-500 to-[#46C8BC] text-white rounded-md"
+                    className="py-1 px-7 bg-gradient-to-r from-cyan-500 to-[#46C8BC] text-white rounded-md outline hover:outline-offset-2 hover:outline-cyan-400 text-center"
                   >
                     Sign in
                   </Link>
                   <Link
                     to="/Sign-up"
-                    className="py-1 px-7 text-center bg-white text-sky-300 border-b-2 border-e-2 border-sky-300 rounded-md hover:border"
+                    className="py-1 px-7 bg-transparent text-cyan-400 border-2 border-cyan-400 rounded-md hover:shadow-md text-center"
                   >
                     Register
                   </Link>
